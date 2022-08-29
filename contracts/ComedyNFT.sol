@@ -141,6 +141,11 @@ contract ComedyNFT is ERC721Upgradeable, OwnableUpgradeable, ReentrancyGuardUpgr
         auction.started = false;
         transferFrom(auction.owner, auction.topBidder, tokenId);
 
+        uint amountFortextBidder = auction.bidAmount * 7 / 10;
+
+        payable(nftDatas[tokenId].textUploader).transfer(amountFortextBidder); // 70% to text uploader
+        payable(nftDatas[tokenId].textVoter).transfer(auction.bidAmount - amountFortextBidder); // 30% to text voter (selected randomly)
+
         emit AuctionEnded(tokenId, auction.topBidder, auction.bidAmount);
     }
 
