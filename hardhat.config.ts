@@ -98,13 +98,9 @@ const config: CustomUserConfig = {
       url: node('mainnet'),
       accounts: accounts('mainnet')
     },
-    ropsten: {
-      url: node("ropsten"),
-      accounts: accounts('ropsten')
-    },
-    rinkeby: {
-      url: node("rinkeby"),
-      accounts: accounts('rinkeby')
+    testnet: {
+      url: node("testnet"),
+      accounts: accounts('testnet')
     },
   },
   gasReporter: {
